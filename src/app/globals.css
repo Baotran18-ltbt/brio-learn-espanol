@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Plus Jakarta Sans";
+  --font-display: "Nunito";
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    font-feature-settings: "ss01";
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible { @apply outline-none ring-[3px] ring-accent/60 ring-offset-2 ring-offset-cream; }
+  ::selection { background: #f3c4c9; }
+}
+
+@layer components {
+  /* Thẻ "chunky" lấy cảm hứng từ hình tham khảo: viền 2px, đáy dày 5px cùng tông */
+  .chunky { @apply rounded-3xl border-2 border-b-[5px] bg-white; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .es { @apply font-display font-extrabold tracking-tight; }
+}
+
+@layer utilities {
+  .preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
